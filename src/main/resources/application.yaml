@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: weather-api
+  config:
+    import: optional:classpath:application-local.yaml
+
+visualcrossing:
+  base-url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline
+  api-key: ${VISUAL_CROSSING_API_KEY:}
+  unit-group: metric
+  lang: es
+
+weather:
+  max-range-days: 14

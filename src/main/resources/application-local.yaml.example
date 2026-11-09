@@ -1,0 +1,3 @@
+# Copia este fichero como application-local.yaml (ignorado por git) y pon tu API key
+visualcrossing:
+  api-key: TU_API_KEY_AQUI
