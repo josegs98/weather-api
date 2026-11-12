@@ -3,6 +3,12 @@ spring:
     name: weather-api
   config:
     import: optional:classpath:application-local.yaml
+  data:
+    redis:
+      host: localhost
+      port: 1025
+  cache:
+    type: redis
 
 visualcrossing:
   base-url: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline
@@ -12,3 +18,7 @@ visualcrossing:
 
 weather:
   max-range-days: 14
+
+weather-cache:
+  forecast-today-ttl: 10m
+  forecast-range-ttl: 40m

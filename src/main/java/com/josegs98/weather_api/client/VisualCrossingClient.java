@@ -3,7 +3,9 @@ package com.josegs98.weather_api.client;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 
+import com.josegs98.weather_api.constant.CacheNamesConstant;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
@@ -32,10 +34,12 @@ public class VisualCrossingClient {
 		this.properties = properties;
 	}
 
+	@Cacheable(CacheNamesConstant.FORECAST_TODAY)
 	public VisualCrossingResponse getToday(String city) {
 		return fetch(city, "/{city}/today", city);
 	}
 
+	@Cacheable(CacheNamesConstant.FORECAST_RANGE)
 	public VisualCrossingResponse getRange(String city, LocalDate from, LocalDate to) {
 		return fetch(city, "/{city}/{from}/{to}", city, from, to);
 	}
